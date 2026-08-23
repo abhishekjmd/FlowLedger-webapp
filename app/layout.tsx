@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import { QueryProvider } from "@/providers/query-provider";
 import { AuthSyncProvider } from "@/providers/auth-sync-provider";
 import "./globals.css";
@@ -25,11 +26,12 @@ export default function RootLayout({
       signInForceRedirectUrl="/dashboard"
       signUpForceRedirectUrl="/dashboard"
       appearance={{
+        baseTheme: dark,
         variables: {
-          colorPrimary: "#4f46e5",
-          colorBackground: "#0f172a",
+          colorPrimary: "#6366f1",
+          colorBackground: "#090d16",
         },
-      }}
+      } as any}
     >
       <html lang="en" className="dark">
         <body className="bg-[#090d16] text-slate-100 min-h-screen antialiased selection:bg-indigo-500/30 selection:text-indigo-200">

@@ -42,11 +42,6 @@ export default function LandingPage() {
               Sign In
             </Button>
           </Link>
-          <Link href="/sign-up">
-            <Button variant="outline" size="sm">
-              Sign Up
-            </Button>
-          </Link>
           <Link href="/dashboard">
             <Button size="sm" rightIcon={<ArrowRight className="w-4 h-4" />}>
               Open App

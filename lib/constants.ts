@@ -33,25 +33,21 @@ export const NAV_ITEMS = [
     title: "Groups",
     href: "/groups",
     icon: Users,
-    badge: "Soon",
   },
   {
     title: "Balances",
     href: "/balances",
     icon: Scale,
-    badge: "Soon",
   },
   {
     title: "Analytics",
     href: "/analytics",
     icon: PieChart,
-    badge: "Soon",
   },
   {
     title: "Settings",
     href: "/settings",
     icon: Settings,
-    badge: "Soon",
   },
 ];
 

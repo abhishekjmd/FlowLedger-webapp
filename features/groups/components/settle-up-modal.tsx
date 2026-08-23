@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { Modal } from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
 import { GroupMember, SettleGroupPayload } from "@/types/api";
@@ -79,34 +80,40 @@ export function SettleUpModal({
           <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
             Who Paid? (Payer)
           </label>
-          <select
-            value={payerId}
-            onChange={(e) => setPayerId(Number(e.target.value))}
-            className="w-full h-11 px-3.5 bg-slate-950 text-slate-200 rounded-xl border border-slate-800 text-sm focus:outline-none focus:border-indigo-500"
-          >
-            {members.map((m) => (
-              <option key={m.user_id} value={m.user_id}>
-                {m.user.name} ({m.user.email})
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={payerId}
+              onChange={(e) => setPayerId(Number(e.target.value))}
+              className="w-full h-11 pl-3.5 pr-10 bg-slate-950 text-slate-200 rounded-xl border border-slate-800 text-sm focus:outline-none focus:border-indigo-500 appearance-none cursor-pointer transition-colors hover:border-slate-700"
+            >
+              {members.map((m) => (
+                <option key={m.user_id} value={m.user_id}>
+                  {m.user.name} ({m.user.email})
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+          </div>
         </div>
 
         <div>
           <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
             Who Received? (Receiver)
           </label>
-          <select
-            value={receiverId}
-            onChange={(e) => setReceiverId(Number(e.target.value))}
-            className="w-full h-11 px-3.5 bg-slate-950 text-slate-200 rounded-xl border border-slate-800 text-sm focus:outline-none focus:border-indigo-500"
-          >
-            {members.map((m) => (
-              <option key={m.user_id} value={m.user_id}>
-                {m.user.name} ({m.user.email})
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              value={receiverId}
+              onChange={(e) => setReceiverId(Number(e.target.value))}
+              className="w-full h-11 pl-3.5 pr-10 bg-slate-950 text-slate-200 rounded-xl border border-slate-800 text-sm focus:outline-none focus:border-indigo-500 appearance-none cursor-pointer transition-colors hover:border-slate-700"
+            >
+              {members.map((m) => (
+                <option key={m.user_id} value={m.user_id}>
+                  {m.user.name} ({m.user.email})
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+          </div>
         </div>
 
         <div>

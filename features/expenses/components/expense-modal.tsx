@@ -15,7 +15,8 @@ import {
 } from "@/types/api";
 import { useCategories } from "../hooks/useCategories";
 import { CategoryPicker } from "./category-picker";
-import { Users, PieChart, Calculator, Sliders } from "lucide-react";
+import { Users, PieChart, Calculator, Sliders, ChevronDown } from "lucide-react";
+
 
 interface ExpenseModalProps {
   isOpen: boolean;
@@ -197,20 +198,23 @@ export function ExpenseModal({
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
               Group (Optional)
             </label>
-            <select
-              value={selectedGroupId || ""}
-              onChange={(e) =>
-                setValue("group_id", e.target.value ? Number(e.target.value) : null)
-              }
-              className="w-full h-11 px-3.5 bg-slate-950 text-slate-200 rounded-xl border border-slate-800 text-sm focus:outline-none focus:border-indigo-500"
-            >
-              <option value="">Personal Expense (No Group)</option>
-              {groups.map((g) => (
-                <option key={g.id} value={g.id}>
-                  {g.name}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                value={selectedGroupId || ""}
+                onChange={(e) =>
+                  setValue("group_id", e.target.value ? Number(e.target.value) : null)
+                }
+                className="w-full h-11 pl-3.5 pr-10 bg-slate-950 text-slate-200 rounded-xl border border-slate-800 text-sm focus:outline-none focus:border-indigo-500 appearance-none cursor-pointer transition-colors hover:border-slate-700"
+              >
+                <option value="">Personal Expense (No Group)</option>
+                {groups.map((g) => (
+                  <option key={g.id} value={g.id}>
+                    {g.name}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+            </div>
           </div>
         </div>
 
@@ -240,11 +244,10 @@ export function ExpenseModal({
                   key={mode.type}
                   type="button"
                   onClick={() => setSplitType(mode.type as SplitType)}
-                  className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-bold transition-all ${
-                    isSelected
+                  className={`flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg text-xs font-bold transition-all ${isSelected
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
                       : "text-slate-400 hover:text-slate-200 hover:bg-slate-900"
-                  }`}
+                    }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   {mode.label}

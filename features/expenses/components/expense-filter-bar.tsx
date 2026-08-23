@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Search, X, Filter } from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
 import { Category } from "@/types/api";
 
 export function ExpenseFilterBar({
@@ -31,12 +31,12 @@ export function ExpenseFilterBar({
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Filter by title or notes..."
-          className="w-full h-10 pl-9 pr-9 bg-slate-950 text-xs text-slate-200 placeholder:text-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500"
+          className="w-full h-10 pl-9 pr-9 bg-slate-950 text-xs text-slate-200 placeholder:text-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 transition-colors hover:border-slate-700"
         />
         {search && (
           <button
             onClick={() => onSearchChange("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -51,7 +51,7 @@ export function ExpenseFilterBar({
             onChange={(e) =>
               onCategoryChange(e.target.value ? Number(e.target.value) : undefined)
             }
-            className="w-full h-10 px-3 bg-slate-950 text-xs text-slate-300 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500"
+            className="w-full h-10 pl-3.5 pr-8 bg-slate-950 text-xs text-slate-300 rounded-xl border border-slate-800 focus:outline-none focus:border-indigo-500 appearance-none cursor-pointer transition-colors hover:border-slate-700"
           >
             <option value="">All Categories</option>
             {categories.map((cat) => (
@@ -60,6 +60,7 @@ export function ExpenseFilterBar({
               </option>
             ))}
           </select>
+          <ChevronDown className="w-3.5 h-3.5 absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
         </div>
 
         {hasActiveFilters && (
@@ -75,3 +76,4 @@ export function ExpenseFilterBar({
     </div>
   );
 }
+
