@@ -1,11 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { ApiResponse } from "@/types/api";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-if (!API_BASE_URL) {
-  throw new Error("NEXT_PUBLIC_API_URL is required to configure the FlowLedger API client.");
-}
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 let tokenGetter: (() => Promise<string | null>) | null = null;
 
