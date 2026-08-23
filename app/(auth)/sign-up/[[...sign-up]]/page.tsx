@@ -1,4 +1,5 @@
 import { SignUp } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import Link from "next/link";
 import { Wallet, ArrowLeft } from "lucide-react";
 import { APP_NAME } from "@/lib/constants";
@@ -31,6 +32,13 @@ export default function SignUpPage() {
           signInUrl="/sign-in"
           fallbackRedirectUrl="/dashboard"
           forceRedirectUrl="/dashboard"
+          appearance={{
+            baseTheme: dark,
+            variables: {
+              colorPrimary: "#6366f1",
+              colorBackground: "#0f172a",
+            },
+          } as any}
         />
       </div>
     </div>
