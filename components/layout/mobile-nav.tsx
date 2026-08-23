@@ -64,11 +64,7 @@ export function MobileNav({
                   <Icon className="w-4 h-4" />
                   <span>{item.title}</span>
                 </div>
-                {item.badge && (
-                  <Badge variant="outline" size="sm" className="text-[9px]">
-                    {item.badge}
-                  </Badge>
-                )}
+
               </Link>
             );
           })}

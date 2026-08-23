@@ -59,11 +59,7 @@ export function Sidebar() {
                 />
                 <span>{item.title}</span>
               </div>
-              {item.badge && (
-                <Badge variant="outline" size="sm" className="text-[9px] py-0 px-1.5 opacity-60">
-                  {item.badge}
-                </Badge>
-              )}
+
             </Link>
           );
         })}
